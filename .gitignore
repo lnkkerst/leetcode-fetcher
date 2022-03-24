@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Custom
+.idea/
+config.json
+record_list.json
+out/
+!.gitkeep
