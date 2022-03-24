@@ -78,7 +78,7 @@ def main():
         if not os.path.exists(code_dir):
             os.mkdir(code_dir)
         code_file = str(r["id"])
-        code_file += "_" + str(r["statusDisplay"])
+        code_file += "_" + str(r["statusDisplay"]).lower().replace(" ", "_")
         if str(r["statusDisplay"]) == "Accepted":
             code_file += "_" + str(r["runtime"]).replace(" ", "")
             code_file += "_" + str(r["rawMemory"])
