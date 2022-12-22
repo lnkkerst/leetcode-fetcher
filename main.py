@@ -39,9 +39,9 @@ def read_config():
 
 def login():
     s.post(
-        "https://leetcode-cn.com/accounts/login/",
+        "https://leetcode.cn/accounts/login/",
         data={"login": username, "password": password},
-        headers={"Referer": "https://leetcode-cn.com/accounts/login/"},
+        headers={"Referer": "https://leetcode.cn/accounts/login/"},
     )
 
 
@@ -50,7 +50,7 @@ def fetch_list():
     while True:
         print("获取范围 " + str(cur_page * 40 - 40) + "-" + str(cur_page * 40))
         res = s.get(
-            "https://leetcode-cn.com/api/submissions/",
+            "https://leetcode.cn/api/submissions/",
             params={"offset": (cur_page - 1) * 40, "limit": 40},
         ).json()
         if len(res["submissions_dump"]) == 0:
@@ -76,7 +76,7 @@ def fetch_record(record_id):
         "__typename\n    }\n    __typename\n  }\n}\n",
     }
     res = s.post(
-        "https://leetcode-cn.com/graphql/",
+        "https://leetcode.cn/graphql/",
         data=json.dumps(post_data),
         headers={"Content-Type": "application/json"},
     ).json()
